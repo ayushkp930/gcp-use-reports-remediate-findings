@@ -1,0 +1,16 @@
+DISCLAIMER
+
+This repository is intended for EDUCATIONAL and DEFENSIVE SECURITY purposes only.
+
+- All Google Cloud resources and screenshots used in this project come from
+  a controlled lab or training environment.
+- Do NOT use any of the examples, ideas, or workflows in this project to
+  access, modify, or test cloud environments that you do not own or have
+  explicit permission to work on.
+
+Unauthorized access to computer systems and cloud resources is illegal and
+can lead to criminal charges. The author of this repository is not responsible
+for any misuse of the information documented here.
+
+By using this project, you agree to follow all applicable laws and regulations
+and to act ethically and responsibly.
