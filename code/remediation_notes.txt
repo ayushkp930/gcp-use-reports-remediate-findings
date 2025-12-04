@@ -1,0 +1,39 @@
+Remediation Notes – Google Cloud SCC Lab
+========================================
+
+1. IAM Findings
+---------------
+- Identified users/service accounts with broad roles such as:
+  - roles/editor
+  - roles/owner
+- Applied least privilege:
+  - Replaced Editor/Owner with specific roles (e.g. Viewer, Storage Admin).
+  - Removed unused or risky IAM bindings.
+
+2. Storage Bucket Findings
+--------------------------
+- Publicly accessible bucket detected.
+- Bucket ACL and IAM policies reviewed.
+- Public read access for "allUsers" and "allAuthenticatedUsers" removed.
+- Confirmed bucket is now private and only required identities have access.
+
+3. Network / VM Findings
+------------------------
+- Checked firewall rules for overly broad CIDR ranges (0.0.0.0/0).
+- Restricted access to specific IP ranges where possible.
+- Verified SSH/HTTP exposure and removed unnecessary open ports.
+
+4. SCC Dashboard Validation
+---------------------------
+- Returned to Security Command Center dashboard.
+- Confirmed:
+  - High severity findings reduced or resolved.
+  - IAM and bucket misconfiguration findings closed.
+- Took final screenshot of clean(er) dashboard.
+
+5. Lessons Learned
+------------------
+- SCC provides a centralized view of misconfigurations.
+- Small IAM mistakes can create large security risks.
+- Storing data in public buckets accidentally is a common risk.
+- Continuous monitoring and remediation are critical for cloud security.
