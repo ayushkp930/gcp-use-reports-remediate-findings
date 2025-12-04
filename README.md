@@ -1,51 +1,75 @@
-# Use reports to remediate findings – Google Cloud SCC Lab
+# 🔐 Google Cloud Security: Use Reports to Remediate Findings  
+Hands-on security lab where I used **Google Cloud Security Command Center (SCC)** to identify, analyze, and remediate vulnerabilities in cloud resources.
 
-This repository documents my work on the **"Use reports to remediate findings"** lab in Google Cloud.
+This project demonstrates real-world **Cloud Security Engineer** workflows:
+- Reviewing SCC findings  
+- IAM analysis  
+- Identifying over-permissions  
+- Misconfiguration review  
+- Applying remediation steps  
+- Verifying security posture improvement  
 
-## Lab Overview
+---
 
-- **Platform:** Google Cloud Platform (GCP)
-- **Service:** Security Command Center (SCC)
-- **Goal:** Identify and remediate misconfigurations and vulnerabilities reported by SCC.
+## 🧭 Lab Objectives
 
-## Key Findings
+✔ Understand the purpose of Security Command Center (SCC)  
+✔ Detect misconfigurations using built-in security reports  
+✔ Identify IAM over-permissions  
+✔ Review VM security findings  
+✔ Apply remediation actions  
+✔ Validate that findings are resolved  
 
-1. **Public bucket ACL**
-   - Some Cloud Storage buckets were publicly accessible.
-   - **Fix:** Removed `allUsers` / `allAuthenticatedUsers` from bucket IAM and restricted access to project members only.
+---
 
-2. **Bucket policy only disabled**
-   - Bucket Policy Only / Uniform bucket-level access was disabled.
-   - **Fix:** Enabled **Uniform bucket-level access** to simplify and centralize permissions.
+## 🛠 Tools & Services Used
 
-3. **Public IP address on VM**
-   - A VM instance had a public IP.
-   - **Fix:** Removed external IP (or would recreate VM without public IP in a real environment).
+- **Google Cloud Security Command Center**
+- **IAM Analyzer**
+- **VM Instance Security Reports**
+- **BigQuery (underlying report queries)**
+- **Compute Engine**
+- **Cloud Storage (optional logs)**
+- **Google Cloud Console**
 
-4. **Default service account used**
-   - VM was using the default Compute Engine service account with broad permissions.
-   - **Fix:** Recommended using a dedicated least-privilege service account.
+---
 
-5. **Full API access**
-   - VM had full Cloud API access scope.
-   - **Fix:** Restricted scopes to only the APIs required.
+## 📊 What Was Reviewed
 
-6. **Bucket logging disabled**
-   - Access logs were not enabled on the storage bucket.
-   - **Fix:** Enabled bucket logging to monitor access and support audits.
+### 1️⃣ **IAM Over-Permission Analysis**
+- Detected identities with *excessive roles*  
+- Found broad roles such as:
+  - `Editor`
+  - `Owner`
+  - `Compute Admin`
+- Applied Principle of Least Privilege
 
-## Screenshots
+### 2️⃣ **VM Security Findings**
+- Public IP exposure check  
+- Firewall rule misconfigurations  
+- OS security recommendations  
+- Shielded VM evaluation  
 
-Folder: `screenshots/`
+### 3️⃣ **Security Command Center Findings**
+Common finding categories:
 
-The screenshots show:
-- SCC risk overview
-- Compliance dashboards
-- Vulnerabilities list before remediation
-- Cloud Storage bucket permissions and public access configuration
+- **High** → Public access, risky secrets, misconfigured IAM  
+- **Medium** → Outdated VM images, missing OS patches  
+- **Low** → Informational notices
 
-## What I Learned
+---
 
-- How to use **Security Command Center** to view compliance and security posture.
-- How to interpret **IAM & Storage** findings (public access, logging, policy-only).
-- Practical steps to harden **Cloud Storage** and **Compute Engine** using SCC recommendations.
+## 🛡 Remediation Steps Performed
+
+✔ Removed overly permissive IAM roles  
+✔ Replaced broad roles → specific roles  
+✔ Disabled unnecessary public access  
+✔ Applied firewall rule restrictions  
+✔ Reviewed exposed service accounts  
+✔ Enabled missing security features  
+
+---
+
+## 📁 Folder Structure
+
+
