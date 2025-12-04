@@ -1,0 +1,24 @@
+# Logs and temporary files
+*.log
+*.tmp
+
+# Local configs / credentials (never commit these if created)
+*.env
+*.secret
+*.backup
+
+# Data exports (if you ever download SCC / BigQuery exports)
+*.csv
+*.json
+
+# Python / compiled / cache (future use)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.o
+*.out
+
+# Local-only folders
+private/
+notes-local/
